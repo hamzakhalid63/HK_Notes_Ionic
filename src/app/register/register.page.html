@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SignUp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="signUpFormGroup">
+          <ion-item>
+              <ion-label>Name:</ion-label>
+              <ion-input formControlName="name" type="text"></ion-input>
+            </ion-item>
+  
+        <ion-item>
+          <ion-label>Email:</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Password:</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Confirm Password:</ion-label>
+            <ion-input formControlName="conf_password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-list>
+          <ion-radio-group formControlName="role">
+            <ion-list-header>
+              <ion-label>Role</ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label>Admin</ion-label>
+              <ion-radio (ionSelect)="adminSelected()" slot="start" value="admin" checked></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>Member</ion-label>
+              <ion-radio (ionSelect)="memberSelected()" slot="start" value="member"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+        <ion-item *ngIf="selection">
+          <ion-label>Class Key:</ion-label>
+          <ion-input #classKey formControlName="key" type="text"></ion-input>
+      </ion-item>
+
+        <ion-button [disabled]="signUpFormGroup.invalid" (click)="save()" type="submit" margin-top expand="full">SignUp</ion-button>
+
+        <ion-item>
+          <p>ALREADY HAVE AN ACCOUNT? <a href="#" routerLink="/login">LOGIN</a></p>
+        </ion-item>
+        </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

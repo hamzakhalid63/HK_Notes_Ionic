@@ -1,0 +1,7 @@
+{
+  "name": "HK_Notes_Ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
